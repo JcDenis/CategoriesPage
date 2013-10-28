@@ -1,0 +1,26 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: brol <contact@brol.info>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+
+msgid "Add a category list page"
+msgstr "Ajoute une page listant les catégories"
+
+msgid "All categories"
+msgstr "Toutes les catégories"
+
+msgid "Categories Page"
+msgstr "Page des catégories"
+
+msgid "Enable Categories Pode"
+msgstr "Activer la page des catégories"
+
+msgid "Categories"
+msgstr "Catégories"
