@@ -2,6 +2,7 @@ CategoriesPage
 ==============
 
 CategoriesPage est un plugin pour Dotclear.
+
 Ce plugin ajoute un widget permettant d'accèder à la liste des catégories. 
 
 Auteurs : Pierre Van Glabeke, Bernard Le Roux
