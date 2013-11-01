@@ -19,7 +19,7 @@ class categoriespageAdminBehaviors
 {
 	public static function main() {
             
-		require_once '/_widgets.php';
+		require_once '_widgets.php';
 		
 		$menu = $GLOBALS['_menu'];
 		$core = $GLOBALS['core'];
