@@ -24,15 +24,3 @@ msgstr "Activer la page des catégories"
 
 msgid "Categories"
 msgstr "Catégories"
-
-msgid "Configuration successfully updated."
-msgstr "La configuration a été mise à jour"
-
-msgid "Plugin config"
-msgstr "Configuration du plugin"
-
-msgid "Enable categoriesMode"
-msgstr "Activation du plugin"
-
-msgid "Save configuration"
-msgstr "Sauvegarde de la configuration"

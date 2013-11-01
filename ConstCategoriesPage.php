@@ -16,5 +16,4 @@ class ConstCategoriesPage {
     const VERSION = '0.1';
     const NS = 'CategoriesPage';
     const PARAM = 'CategoriesPage';
-    const PLUGIN_IS_ACTIVE = 'categoriespage_active';
 }

@@ -19,15 +19,7 @@ class publicCategoriesPage {
 
 	public static function main() {
 
-		require_once 'ConstCategoriesPage.php';
-
 		$core = $GLOBALS['core'];
-		$ns = $core->blog->settings->addNamespace(ConstCategoriesPage::NS);
-
-		// If categoriesPage is not active we stop here :
-		if (!$ns->get(ConstCategoriesPage::PLUGIN_IS_ACTIVE)) {
-			return;
-		}
 		require_once '/_widgets.php';
 
 		// Adds  news Categories' templates tags :

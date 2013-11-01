@@ -23,10 +23,6 @@ class widgetsCategoriesPage {
 	public static function main() {
 		require_once 'ConstCategoriesPage.php';
 		$core = $GLOBALS['core'];
-		$ns = $core->blog->settings->addNamespace(ConstCategoriesPage::NS);
-		if (!$ns->get(ConstCategoriesPage::PLUGIN_IS_ACTIVE)) {
-			return;
-		}
 
 		$core->addBehavior('initWidgets', array('widgetsCategoriesPage', 'initWidgets'));
 	}
