@@ -42,7 +42,7 @@ class widgetsCategoriesPage {
 		if ($widget->class) {
 			$class = html::escapeHTML($widget->class);
 		}
-		if ( $widget->content_only) {
+		if ( !$widget->content_only) {
 			$divB = '<div class="categories '. $class . '">';
 			$divE = '</div>';
 		}
@@ -50,7 +50,7 @@ class widgetsCategoriesPage {
 			$title = '<h2>' . html::escapeHTML($widget->title) . '</h2>';
 		}
 		
-		return 	$divB .
+		return 	$divB . $title .
 				'<ul><li><strong><a href="' . 
 				$core->blog->url . $core->url->getBase("categories") . '">' .
 				__('All categories') . 
@@ -59,7 +59,7 @@ class widgetsCategoriesPage {
 	}
 
 	public static function initWidgets($widget) {
-		$text = __('Categories page');
+		$text = __('Categories Page');
 		$widget->create('CategoriesPage', $text, array('widgetsCategoriesPage', 'categoriesPageWidgets'));
 		$categoriesPage = $widget->CategoriesPage;
 		$categoriesPage->setting('title', __('Title:'), $text, 'text');

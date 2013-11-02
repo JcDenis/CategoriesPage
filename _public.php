@@ -20,7 +20,7 @@ class publicCategoriesPage {
 	public static function main() {
 
 		$core = $GLOBALS['core'];
-		require_once '/_widgets.php';
+		require_once '_widgets.php';
 
 		// Adds  news Categories' templates tags :
 		$tpl = $core->tpl;

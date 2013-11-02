@@ -3,14 +3,14 @@ CategoriesPage
 
 CategoriesPage est un plugin pour [Dotclear] (http://fr.dotclear.org/).
 
-Ce plugin ajoute un widget permettant d'accèder à la liste des catégories. 
+Ce plugin ajoute un widget permettant d'accèder à une page listant les catégories.
 
-Ce plugin est basé sur le plugin [CategoriesMode]  (http://plugins.dotaddict.org/dc2/details/categoriesMode) de Adjaya, Pierre Van Glabeke.
+Ce plugin est basé sur le plugin [CategoriesMode] (http://plugins.dotaddict.org/dc2/details/categoriesMode) de Adjaya, Pierre Van Glabeke.
 
 Compatibilité
 ============
 
-Ce plugin a été testé avec les versions 2.5 et 2.6 de  [Dotclear] (http://fr.dotclear.org/).
+Ce plugin a été testé avec les versions 2.5 et 2.6 de [Dotclear] (http://fr.dotclear.org/).
 
 Auteurs
 =======

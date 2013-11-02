@@ -19,8 +19,5 @@ msgstr "Toutes les catégories"
 msgid "Categories Page"
 msgstr "Page des catégories"
 
-msgid "Enable Categories Pode"
-msgstr "Activer la page des catégories"
-
 msgid "Categories"
 msgstr "Catégories"
