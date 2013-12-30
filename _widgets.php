@@ -21,7 +21,8 @@ class widgetsCategoriesPage {
 	 * initialisation du context widget
 	*/
 	public static function main() {
-		require_once 'ConstCategoriesPage.php';
+		require_once __DIR__.'/ConstCategoriesPage.php';
+		
 		$core = $GLOBALS['core'];
 
 		$core->addBehavior('initWidgets', array('widgetsCategoriesPage', 'initWidgets'));

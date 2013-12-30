@@ -12,13 +12,11 @@
 if (!defined('DC_RC_PATH')) { 
     return; 
 }
-
-require_once 'ConstCategoriesPage.php';
 $this->registerModule(
 	/* Name */          'Categories Page',
 	/* Description*/    'Add a category list page /  Ajoute une page listant les catégories',
 	/* Author */        'Pierre Van Glabeke, Bernard Le Roux',
-	/* Version */		ConstCategoriesPage::VERSION,
+	/* Version */		    '0.1',
 	/* Properties */
 	array(
 		'permissions' => 'admin',
