@@ -7,10 +7,6 @@ Ce plugin ajoute un widget permettant d'accèder à une page listant les catégo
 
 Ce plugin est basé sur le plugin [CategoriesMode] (http://plugins.dotaddict.org/dc2/details/categoriesMode) de Adjaya, Pierre Van Glabeke.
 
-Compatibilité
-============
-
-Ce plugin a été testé avec les versions 2.5 et 2.6 de [Dotclear] (http://fr.dotclear.org/).
 
 Auteurs
 =======

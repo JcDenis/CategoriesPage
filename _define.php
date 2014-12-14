@@ -16,13 +16,13 @@ $this->registerModule(
 	/* Name */          'Categories Page',
 	/* Description*/    'Add a category list page /  Ajoute une page listant les catégories',
 	/* Author */        'Pierre Van Glabeke, Bernard Le Roux',
-	/* Version */		    '0.1',
+	/* Version */		    '0.2',
 	/* Properties */
 	array(
 		'permissions' => 'admin',
 		'type' => 'plugin',
-		'dc_min' => '2.5',
-		'support' => 'http://forum.dotclear.org/viewforum.php?id=16',
+		'dc_min' => '2.7',
+		'support' => 'http://forum.dotclear.org/viewtopic.php?pid=326224#p326224',
 		'details' => 'http://plugins.dotaddict.org/dc2/details/categoriesPage'
 	)
 );

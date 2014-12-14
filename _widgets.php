@@ -33,30 +33,22 @@ class widgetsCategoriesPage {
 		$core = $GLOBALS['core'];
 
 		$url = $core->url;
+
+		if ($widget->offline)
+			return;
 		
 		if (($widget->homeonly == 1 && $url->type !== 'default') ||
 			($widget->homeonly == 2 && $url->type === 'default')) {
 			return;
 		}
 
-		$class = $divB = $divE = $title = '';
-		if ($widget->class) {
-			$class = html::escapeHTML($widget->class);
-		}
-		if ( !$widget->content_only) {
-			$divB = '<div class="categories '. $class . '">';
-			$divE = '</div>';
-		}
-		if ( $widget->title ) {
-			$title = '<h2>' . html::escapeHTML($widget->title) . '</h2>';
-		}
-		
-		return 	$divB . $title .
-				'<ul><li><strong><a href="' . 
-				$core->blog->url . $core->url->getBase("categories") . '">' .
-				__('All categories') . 
-				'</a></strong></li></ul>' .
-				$divE;
+		$res =
+		($widget->title ? $widget->renderTitle(html::escapeHTML($widget->title)) : '').
+		'<p><a href="'.$core->blog->url.$core->url->getBase('categories').'">'.
+		($widget->link_title ? html::escapeHTML($widget->link_title) : __('All categories')).
+		'</a></p>';
+
+		return $widget->renderDiv($widget->content_only,'categories '.$widget->class,'',$res);
 	}
 
 	public static function initWidgets($widget) {
@@ -72,6 +64,7 @@ class widgetsCategoriesPage {
 		);
 		$categoriesPage->setting('content_only', __('Content only'), 0, 'check');
 		$categoriesPage->setting('class', __('CSS class:'), '');
+		$categoriesPage->setting('offline',__('Offline'),0,'check');
 	}
 
 }
