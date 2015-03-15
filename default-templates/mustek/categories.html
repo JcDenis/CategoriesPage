@@ -39,8 +39,10 @@
   
   <div id="content-info">
     <h2>{{tpl:lang Categories}}</h2>
+  </div>
 
 	<tpl:Categories>
+  <div class="category">
     <h3><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a> ({{tpl:CategoryCount}})</h3>
     <div>{{tpl:CategoryDescription}}</div>
   
@@ -52,8 +54,8 @@
     title="{{tpl:lang This category's comments Atom feed}}" class="feed">{{tpl:lang Comments feed}}</a>
     </tpl:SysIf>
     </p>	
-	</tpl:Categories>
   </div>
+	</tpl:Categories>
   
   </div>
 </div> <!-- End #main -->
