@@ -53,7 +53,9 @@ class widgetsCategoriesPage {
 
 	public static function initWidgets($widget) {
 		$text = __('Categories Page');
-		$widget->create('CategoriesPage', $text, array('widgetsCategoriesPage', 'categoriesPageWidgets'));
+		$widget->create('CategoriesPage', __('CategoriesPage'), array('widgetsCategoriesPage', 'categoriesPageWidgets'),
+			null,
+			__('Link to categories'));
 		$categoriesPage = $widget->CategoriesPage;
 		$categoriesPage->setting('title', __('Title:'), $text, 'text');
 		$categoriesPage->setting('homeonly', __('Display on:'), 0, 'combo', array(

@@ -21,3 +21,6 @@ msgstr "Page des catégories"
 
 msgid "Categories"
 msgstr "Catégories"
+
+msgid "Link to categories"
+msgstr "Lien vers la page des catégories"
