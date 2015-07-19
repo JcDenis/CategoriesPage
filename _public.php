@@ -77,13 +77,12 @@ class urlCategories extends dcUrlHandlers {
 	}
 }
 
-class extCategoriesPage {
-
-	public static function publicBreadcrumb($context, $separator) {
-		// check URL type
-		if ($context == 'categories') {
-			// It's a CategoriesPage page, return my own part
-			return __('Categories page');
-		}
-	}
+class extCategoriesPage
+{
+  public static function publicBreadcrumb($context,$separator)
+  {
+    if ($context == 'categories') {
+      return __('Categories Page');
+    }
+  }
 }
