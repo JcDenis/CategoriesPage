@@ -1,26 +1,32 @@
+# Language: Français
+# Module: CategoriesPage - 0.6
+# Date: 2017-11-05 19:17:08
+# Translated with translater 2017.05.10
+
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: CategoriesPage 0.6\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: brol <contact@brol.info>\n"
+"PO-Revision-Date: 2017-11-05T19:17:08+00:00\n"
+"Last-Translator: brol\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.7\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: _public.php:85
+#: _widgets.php:55
+#: default-templates/currywurst/categories.html:4
+#: default-templates/dotty/categories.html:4
+#: default-templates/mustek/categories.html:4
+msgid "Categories Page"
+msgstr "Page des catégories"
+
+#: _widgets.php:58
+msgid "Link to categories"
+msgstr "Lien vers la page des catégories"
 
 msgid "Add a category list page"
 msgstr "Ajoute une page listant les catégories"
 
-msgid "All categories"
-msgstr "Toutes les catégories"
-
-msgid "Categories Page"
-msgstr "Page des catégories"
-
-msgid "Categories"
-msgstr "Catégories"
-
-msgid "Link to categories"
-msgstr "Lien vers la page des catégories"

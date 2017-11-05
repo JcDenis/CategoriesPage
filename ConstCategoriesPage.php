@@ -13,7 +13,7 @@ if (!defined('DC_RC_PATH')) {
     return; 
 }
 class ConstCategoriesPage {
-    const VERSION = '0.2';
+    const VERSION = '0.6';
     const NS = 'CategoriesPage';
     const PARAM = 'CategoriesPage';
 }
