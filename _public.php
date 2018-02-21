@@ -18,7 +18,6 @@ publicCategoriesPage::main();
 class publicCategoriesPage {
 
 	public static function main() {
-
 		$core = $GLOBALS['core'];
 		require_once __DIR__.'/_widgets.php';
 
@@ -33,21 +32,16 @@ class publicCategoriesPage {
 		// compatibilité avec Breadcrumb 
 		$core->addBehavior('publicBreadcrumb', array('extCategoriesPage', 'publicBreadcrumb'));
 	}
-
 }
 
 class tplCategories {
-	/*
-	  Use tag : {{tpl:CategoryCount}}
-    */
+	// Use tag : {{tpl:CategoryCount}}
 	public static function CategoryCount($attr) {
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
 		return
 				'<?php echo ' . sprintf($f, '$_ctx->categories->nb_post') . '; ?>';
 	}
-	/*
-	  Use tag : {{tpl:CategoriesURL}}
-	*/
+	// Use tag : {{tpl:CategoriesURL}}
 	public static function CategoriesURL($attr) {
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
 		return
@@ -56,7 +50,6 @@ class tplCategories {
 }
 
 class behaviorCategoriesPage {
-
 	public static function addTplPath($core) {
 		$tplset = $core->themes->moduleInfo($core->blog->settings->system->theme,'tplset');
         if (!empty($tplset) && is_dir(dirname(__FILE__).'/default-templates/'.$tplset)) {
@@ -65,11 +58,9 @@ class behaviorCategoriesPage {
             $core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates/'.DC_DEFAULT_TPLSET);
         }
 	}
-
 }
 
 class urlCategories extends dcUrlHandlers {
-
 	public static function categories($args) {
 		# The entry
 		self::serveDocument('categories.html');
