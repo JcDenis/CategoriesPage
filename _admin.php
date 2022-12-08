@@ -1,16 +1,17 @@
 <?php
-/* -- BEGIN LICENSE BLOCK ----------------------------------
-#
-# This file is part of Categories Page, a plugin for Dotclear 2.
-#
-# Copyright (c) 2013 Pierre Van Glabeke, Bernard Le Roux
-# Licensed under the GPL version 2.0 license.
-# See LICENSE file or
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-# -- END LICENSE BLOCK ------------------------------------*/
-if (!defined('DC_CONTEXT_ADMIN')) { 
-    return; 
+/**
+ * @brief CategoriesPage, a plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugin
+ *
+ * @author Pierre Van Glabeke, Bernard Le Roux and Contributors
+ *
+ * @copyright Jean-Christian Denis
+ * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
+ */
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return null;
 }
 
-require_once __DIR__.'/_widgets.php';
+require __DIR__ . '/_widgets.php';

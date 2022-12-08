@@ -1,79 +1,42 @@
 <?php
-/* -- BEGIN LICENSE BLOCK ----------------------------------
-  #
-  # This file is part of Categories Page, a plugin for Dotclear 2.
-  #
-  # Copyright (c) 2013 Pierre Van Glabeke, Bernard Le Roux
-  # Licensed under the GPL version 2.0 license.
-  # See LICENSE file or
-  # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-  #
-  # -- END LICENSE BLOCK ------------------------------------ */
+/**
+ * @brief CategoriesPage, a plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugin
+ *
+ * @author Pierre Van Glabeke, Bernard Le Roux and Contributors
+ *
+ * @copyright Jean-Christian Denis
+ * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
+ */
 if (!defined('DC_RC_PATH')) {
-	return;
+    return null;
 }
 
-publicCategoriesPage::main();
+require __DIR__ . '/_widgets.php';
 
-class publicCategoriesPage {
-
-	public static function main() {
-		$core = $GLOBALS['core'];
-		require_once __DIR__.'/_widgets.php';
-
-		// Adds  news Categories' templates tags :
-		$tpl = $core->tpl;
-		$tpl->addValue('CategoryCount', array('tplCategories', 'CategoryCount'));
-		$tpl->addValue('CategoriesURL', array('tplCategories', 'CategoriesURL'));
-		// Adds a new template behavior :
-		$core->addBehavior('publicBeforeDocument', array('behaviorCategoriesPage', 'addTplPath'));
-		// 'categories' urlHandler :
-		$core->url->register('categories', 'categories', '^categories$', array('urlCategories', 'categories'));
-		// compatibilité avec Breadcrumb 
-		$core->addBehavior('publicBreadcrumb', array('extCategoriesPage', 'publicBreadcrumb'));
-	}
-}
-
-class tplCategories {
-	// Use tag : {{tpl:CategoryCount}}
-	public static function CategoryCount($attr) {
-		$f = $GLOBALS['core']->tpl->getFilters($attr);
-		return
-				'<?php echo ' . sprintf($f, '$_ctx->categories->nb_post') . '; ?>';
-	}
-	// Use tag : {{tpl:CategoriesURL}}
-	public static function CategoriesURL($attr) {
-		$f = $GLOBALS['core']->tpl->getFilters($attr);
-		return
-				'<?php echo ' . sprintf($f, '$core->blog->url.$core->url->getBase("categories")') . '; ?>';
-	}
-}
-
-class behaviorCategoriesPage {
-	public static function addTplPath($core) {
-		$tplset = $core->themes->moduleInfo($core->blog->settings->system->theme,'tplset');
-        if (!empty($tplset) && is_dir(dirname(__FILE__).'/default-templates/'.$tplset)) {
-            $core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates/'.$tplset);
-        } else {
-            $core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates/'.DC_DEFAULT_TPLSET);
-        }
-	}
-}
-
-class urlCategories extends dcUrlHandlers {
-	public static function categories($args) {
-		# The entry
-		self::serveDocument('categories.html');
-		exit;
-	}
-}
-
-class extCategoriesPage
-{
-  public static function publicBreadcrumb($context,$separator)
-  {
-    if ($context == 'categories') {
-      return __('Categories Page');
+// public behavior
+dcCore::app()->addBehavior('publicBeforeDocumentV2', function () {
+    $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
+    if (!empty($tplset) && is_dir(__DIR__ . '/default-templates/' . $tplset)) {
+        dcCore::app()->tpl->setPath(dcCore::app()->tpl->getPath(), __DIR__ . '/default-templates/' . $tplset);
+    } else {
+        dcCore::app()->tpl->setPath(dcCore::app()->tpl->getPath(), __DIR__ . '/default-templates/' . DC_DEFAULT_TPLSET);
     }
-  }
-}
+});
+
+// breacrumb addon
+dcCore::app()->addBehavior('publicBreadcrumb', function ($context, $separator) {
+    if ($context == 'categories') {
+        return __('Categories Page');
+    }
+});
+
+// tpl values
+dcCore::app()->tpl->addValue('CategoryCount', function ($attr) {
+    return '<?php echo ' . sprintf(dcCore::app()->tpl->getFilters($attr), 'dcCore::app()->ctx->categories->nb_post') . '; ?>';
+});
+dcCore::app()->tpl->addValue('CategoriesURL', function ($attr) {
+    return '<?php echo ' . sprintf(dcCore::app()->tpl->getFilters($attr), 'dcCore::app()->blog->url.dcCore::app()->url->getBase("categories")') . '; ?>';
+});

@@ -1,28 +1,33 @@
 <?php
-/* -- BEGIN LICENSE BLOCK ----------------------------------
-#
-# This file is part of Categories Page, a plugin for Dotclear 2.
-#
-# Copyright (c) 2013 Pierre Van Glabeke, Bernard Le Roux
-# Licensed under the GPL version 2.0 license.
-# See LICENSE file or
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-# -- END LICENSE BLOCK ------------------------------------*/
-if (!defined('DC_RC_PATH')) { 
-    return; 
+/**
+ * @brief CategoriesPage, a plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugin
+ *
+ * @author Pierre Van Glabeke, Bernard Le Roux and Contributors
+ *
+ * @copyright Jean-Christian Denis
+ * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
+ */
+if (!defined('DC_RC_PATH')) {
+    return null;
 }
+
 $this->registerModule(
-	/* Name */          'CategoriesPage',
-	/* Description*/    'Add a category list page',
-	/* Author */        'Pierre Van Glabeke, Bernard Le Roux',
-	/* Version */		    '0.6',
-	/* Properties */
-	array(
-		'permissions' => 'admin',
-		'type' => 'plugin',
-		'dc_min' => '2.9',
-		'support' => 'http://forum.dotclear.org/viewtopic.php?pid=326224#p326224',
-		'details' => 'http://plugins.dotaddict.org/dc2/details/categoriesPage'
-	)
+    'Categories Page',
+    'Add a public page for categories list',
+    'Pierre Van Glabeke, Bernard Le Roux and Contributors',
+    '0.7',
+    [
+        'requires'    => [['core', '2.24']],
+        'permissions' => dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_ADMIN,
+        ]),
+        'type'       => 'plugin',
+        'support'    => 'https://github.com/JcDenis/CategoriesPage',
+        'details'    => 'https://plugins.dotaddict.org/dc2/details/CategoriesPage',
+        'repository' => 'https://raw.githubusercontent.com/JcDenis/CategoriesPage/master/dcstore.xml',
+
+    ]
 );
