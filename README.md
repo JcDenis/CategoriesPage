@@ -1,17 +1,45 @@
-CategoriesPage
-==============
+# README
 
-CategoriesPage est un plugin pour [Dotclear 2] (http://fr.dotclear.org/).
+[![Release](https://img.shields.io/github/v/release/JcDenis/CategoriesPage)](https://github.com/JcDenis/CategoriesPage/releases)
+[![Date](https://img.shields.io/github/release-date/JcDenis/CategoriesPage)](https://github.com/JcDenis/CategoriesPage/releases)
+[![Issues](https://img.shields.io/github/issues/JcDenis/CategoriesPage)](https://github.com/JcDenis/CategoriesPage/issues)
+[![Dotclear](https://img.shields.io/badge/dotclear-v2.24-blue.svg)](https://fr.dotclear.org/download)
+[![Dotaddict](https://img.shields.io/badge/dotaddict-official-green.svg)](https://plugins.dotaddict.org/dc2/details/CategoriesPage)
+[![License](https://img.shields.io/github/license/JcDenis/CategoriesPage)](https://github.com/JcDenis/CategoriesPage/blob/master/LICENSE)
 
-Ce plugin ajoute un widget permettant d'accéder à une page listant les catégories.
+## WHAT IS CATEGORIESPAGE ?
 
-Ce plugin est basé sur le plugin [CategoriesMode] (http://plugins.dotaddict.org/dc2/details/categoriesMode) de Adjaya, Pierre Van Glabeke.
+_CategoriesPage_ is a plugin for the open-source 
+web publishing software called Dotclear.
 
+Add a public page to list blog categories.
+A widget is also available.
 
-Auteurs
-=======
-Pierre Van Glabeke, Bernard Le Roux
+## REQUIREMENTS
 
-Licence
-===================
-Ce plugin est placé sous la licence [GPL v2] (http://www.gnu.org/licenses/gpl-2.0.html).
+ _CategoriesPage_ requires: 
+
+  * admin permissions
+  * Dotclear 2.24
+
+## USAGE
+
+First install _CategoriesPage_, manualy from a zip package or from 
+Dotaddict repository. (See Dotclear's documentation to know how do this)
+
+Add and configure "Categories page" from widgets manager.
+default templates are on plugin directory CategoriesPage/default-templates/
+
+## LINKS
+
+ * License : [GNU GPL v2](https://www.gnu.org/licenses/old-licenses/lgpl-2.0.html)
+ * Source & contribution : [GitHub Page](https://github.com/JcDenis/CategoriesPage)
+ * Packages & details : [Dotaddict Page](https://plugins.dotaddict.org/dc2/details/CategoriesPage)
+
+## CONTRIBUTORS
+
+ * Pierre Van Glabeke
+ * Bernard Le Roux
+ * Jean-Christian Denis
+
+ You are welcome to contribute to this code.
