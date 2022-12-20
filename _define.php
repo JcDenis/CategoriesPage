@@ -18,16 +18,16 @@ $this->registerModule(
     'Categories Page',
     'Add a public page for categories list',
     'Pierre Van Glabeke, Bernard Le Roux and Contributors',
-    '0.7',
+    '0.7.1',
     [
         'requires'    => [['core', '2.24']],
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_ADMIN,
         ]),
-        'type'       => 'plugin',
-        'support'    => 'https://github.com/JcDenis/CategoriesPage',
-        'details'    => 'https://plugins.dotaddict.org/dc2/details/CategoriesPage',
-        'repository' => 'https://raw.githubusercontent.com/JcDenis/CategoriesPage/master/dcstore.xml',
+        'type'        => 'plugin',
+        'support'     => 'https://github.com/JcDenis/' . basename(__DIR__),
+        'details'     => 'https://plugins.dotaddict.org/dc2/details/' . basename(__DIR__),
+        'repository'  => 'https://raw.githubusercontent.com/JcDenis/' . basename(__DIR__) . '/master/dcstore.xml',
 
     ]
 );

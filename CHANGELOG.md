@@ -1,3 +1,7 @@
+0.7.1 - 2022.12.20
+- remove currywurst template
+- use dotclear method for widget
+
 0.7 - 2022.12.08
 - update to dotclear 2.24
 - review code
