@@ -10,17 +10,35 @@
  * @copyright Jean-Christian Denis
  * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
  */
-if (!defined('DC_RC_PATH')) {
-    return null;
-}
+declare(strict_types=1);
 
-dcCore::app()->url->register('categories', 'categories', '^categories$', ['urlCategoriesPage', 'categories']);
+namespace Dotclear\Plugin\CategoriesPage;
 
-class urlCategoriesPage extends dcUrlHandlers
+use dcCore;
+use dcNsProcess;
+
+class Prepend extends dcNsProcess
 {
-    public static function categories($args)
+    public static function init(): bool
     {
-        self::serveDocument('categories.html');
-        exit;
+        static::$init = My::phpCompliant();
+
+        return static::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!static::$init) {
+            return false;
+        }
+
+        dcCore::app()->url->register(
+            'categories',
+            'categories',
+            '^categories$',
+            [UrlHandler::class, 'categories']
+        );
+
+        return true;
     }
 }
