@@ -2,11 +2,11 @@
 <modules xmlns:da="http://dotaddict.org/da/">
   <module id="CategoriesPage">
     <name>Categories Page</name>
-    <version>0.7.1</version>
+    <version>1.0</version>
     <author>Pierre Van Glabeke, Bernard Le Roux and Contributors</author>
     <desc>Add a public page for categories list</desc>
-    <file>https://github.com/JcDenis/CategoriesPage/releases/download/v0.7.1/plugin-CategoriesPage.zip</file>
-    <da:dcmin>2.24</da:dcmin>
+    <file>https://github.com/JcDenis/CategoriesPage/releases/download/v1.0/plugin-CategoriesPage.zip</file>
+    <da:dcmin>2.26</da:dcmin>
     <da:details>https://plugins.dotaddict.org/dc2/details/CategoriesPage</da:details>
     <da:support>https://github.com/JcDenis/CategoriesPage</da:support>
   </module>

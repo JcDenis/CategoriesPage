@@ -3,7 +3,7 @@
 [![Release](https://img.shields.io/github/v/release/JcDenis/CategoriesPage)](https://github.com/JcDenis/CategoriesPage/releases)
 [![Date](https://img.shields.io/github/release-date/JcDenis/CategoriesPage)](https://github.com/JcDenis/CategoriesPage/releases)
 [![Issues](https://img.shields.io/github/issues/JcDenis/CategoriesPage)](https://github.com/JcDenis/CategoriesPage/issues)
-[![Dotclear](https://img.shields.io/badge/dotclear-v2.24-blue.svg)](https://fr.dotclear.org/download)
+[![Dotclear](https://img.shields.io/badge/dotclear-v2.26-blue.svg)](https://fr.dotclear.org/download)
 [![Dotaddict](https://img.shields.io/badge/dotaddict-official-green.svg)](https://plugins.dotaddict.org/dc2/details/CategoriesPage)
 [![License](https://img.shields.io/github/license/JcDenis/CategoriesPage)](https://github.com/JcDenis/CategoriesPage/blob/master/LICENSE)
 
@@ -20,7 +20,7 @@ A widget is also available.
  _CategoriesPage_ requires: 
 
   * admin permissions
-  * Dotclear 2.24
+  * Dotclear 2.26
 
 ## USAGE
 

@@ -1,3 +1,7 @@
+1.0 - 2023.04.11
+- require Dotclear 2.26
+- use namespace
+
 0.7.1 - 2022.12.20
 - remove currywurst template
 - use dotclear method for widget
