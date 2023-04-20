@@ -36,6 +36,11 @@ class Frontend extends dcNsProcess
         dcCore::app()->addBehaviors([
             // template path
             'publicBeforeDocumentV2' => function (): void {
+                // nullsafe PHP < 8.0
+                if (is_null(dcCore::app()->blog)) {
+                    return ;
+                }
+
                 $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->get('system')->get('theme'), 'tplset');
                 if (!empty($tplset) && is_dir(implode(DIRECTORY_SEPARATOR, [My::root(), 'default-templates', $tplset]))) {
                     dcCore::app()->tpl->setPath(dcCore::app()->tpl->getPath(), implode(DIRECTORY_SEPARATOR, [My::root(), 'default-templates', $tplset]));

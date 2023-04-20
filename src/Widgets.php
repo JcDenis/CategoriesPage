@@ -44,6 +44,11 @@ class Widgets
             return '';
         }
 
+        // nullsafe PHP < 8.0
+        if (is_null(dcCore::app()->blog)) {
+            return '';
+        }
+
         return $w->renderDiv(
             (bool) $w->content_only,
             My::id() . ' ' . $w->class,
