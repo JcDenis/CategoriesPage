@@ -1,3 +1,7 @@
+1.1 - 2023.05.13
+- require Dotclear 2.26
+- fix nullsafe warnings
+
 1.0 - 2023.04.11
 - require Dotclear 2.26
 - use namespace

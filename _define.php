@@ -18,7 +18,7 @@ $this->registerModule(
     'Categories Page',
     'Add a public page for categories list',
     'Pierre Van Glabeke, Bernard Le Roux and Contributors',
-    '1.0',
+    '1.1',
     [
         'requires'    => [['core', '2.26']],
         'permissions' => dcCore::app()->auth->makePermissions([
