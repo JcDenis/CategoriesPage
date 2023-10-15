@@ -1,33 +1,31 @@
 <?php
 /**
- * @brief CategoriesPage, a plugin for Dotclear 2
+ * @file
+ * @brief       The plugin CategoriesPage definition
+ * @ingroup     CategoriesPage
  *
- * @package Dotclear
- * @subpackage Plugin
+ * @defgroup    CategoriesPage Plugin CategoriesPage.
  *
- * @author Pierre Van Glabeke, Bernard Le Roux and Contributors
+ * Add a public page for categories list.
  *
- * @copyright Jean-Christian Denis
- * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
+ * @author      Pierre Van Glabeke (author)
+ * @author      Jean-Christian Denis (latest)
+ * @copyright   GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
  */
-if (!defined('DC_RC_PATH')) {
-    return null;
-}
+declare(strict_types=1);
 
 $this->registerModule(
     'Categories Page',
     'Add a public page for categories list',
     'Pierre Van Glabeke, Bernard Le Roux and Contributors',
-    '1.2',
+    '1.3',
     [
-        'requires'    => [['core', '2.27']],
-        'permissions' => dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_ADMIN,
-        ]),
-        'type'       => 'plugin',
-        'support'    => 'https://git.dotclear.watch/JcDenis/' . basename(__DIR__) . '/issues',
-        'details'    => 'https://git.dotclear.watch/JcDenis/' . basename(__DIR__) . '/src/branch/master/README.md',
-        'repository' => 'https://git.dotclear.watch/JcDenis/' . basename(__DIR__) . '/raw/branch/master/dcstore.xml',
+        'requires'    => [['core', '2.28']],
+        'permissions' => 'My',
+        'type'        => 'plugin',
+        'support'     => 'https://git.dotclear.watch/JcDenis/' . basename(__DIR__) . '/issues',
+        'details'     => 'https://git.dotclear.watch/JcDenis/' . basename(__DIR__) . '/src/branch/master/README.md',
+        'repository'  => 'https://git.dotclear.watch/JcDenis/' . basename(__DIR__) . '/raw/branch/master/dcstore.xml',
 
     ]
 );

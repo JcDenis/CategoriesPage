@@ -1,23 +1,21 @@
 <?php
-/**
- * @brief CategoriesPage, a plugin for Dotclear 2
- *
- * @package Dotclear
- * @subpackage Plugin
- *
- * @author Pierre Van Glabeke, Bernard Le Roux and Contributors
- *
- * @copyright Jean-Christian Denis
- * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
- */
+
 declare(strict_types=1);
 
 namespace Dotclear\Plugin\CategoriesPage;
 
 use ArrayObject;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
+/**
+ * @brief       CategoriesPage frontend class.
+ * @ingroup     CategoriesPage
+ *
+ * @author      Pierre Van Glabeke (author)
+ * @author      Jean-Christian Denis (latest)
+ * @copyright   GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
+ */
 class Frontend extends Process
 {
     public static function init(): bool
@@ -31,19 +29,18 @@ class Frontend extends Process
             return false;
         }
 
-        dcCore::app()->addBehaviors([
+        App::behavior()->addBehaviors([
             // template path
             'publicBeforeDocumentV2' => function (): void {
-                // nullsafe PHP < 8.0
-                if (is_null(dcCore::app()->blog)) {
+                if (!App::blog()->isDefined()) {
                     return ;
                 }
 
-                $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->get('system')->get('theme'), 'tplset');
+                $tplset = App::themes()->moduleInfo(App::blog()->settings()->get('system')->get('theme'), 'tplset');
                 if (!empty($tplset) && is_dir(implode(DIRECTORY_SEPARATOR, [My::path(), 'default-templates', $tplset]))) {
-                    dcCore::app()->tpl->setPath(dcCore::app()->tpl->getPath(), implode(DIRECTORY_SEPARATOR, [My::path(), 'default-templates', $tplset]));
+                    App::frontend()->template()->setPath(App::frontend()->template()->getPath(), implode(DIRECTORY_SEPARATOR, [My::path(), 'default-templates', $tplset]));
                 } else {
-                    dcCore::app()->tpl->setPath(dcCore::app()->tpl->getPath(), implode(DIRECTORY_SEPARATOR, [My::path(), 'default-templates', DC_DEFAULT_TPLSET]));
+                    App::frontend()->template()->setPath(App::frontend()->template()->getPath(), implode(DIRECTORY_SEPARATOR, [My::path(), 'default-templates', App::config()->defaultTplset()]));
                 }
             },
             // breacrumb addon
@@ -51,15 +48,15 @@ class Frontend extends Process
                 return $context == 'categories' ? My::name() : '';
             },
             // widget
-            'initWidgets' => [Widgets::class, 'initWidgets'],
+            'initWidgets' => Widgets::initWidgets(...),
         ]);
 
         // tpl values
-        dcCore::app()->tpl->addValue('CategoryCount', function (ArrayObject $attr): string {
-            return '<?php echo ' . sprintf(dcCore::app()->tpl->getFilters($attr), 'dcCore::app()->ctx->categories->nb_post') . '; ?>';
+        App::frontend()->template()->addValue('CategoryCount', function (ArrayObject $attr): string {
+            return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), 'App::frontend()->context()->categories->nb_post') . '; ?>';
         });
-        dcCore::app()->tpl->addValue('CategoriesURL', function (ArrayObject $attr): string {
-            return '<?php echo ' . sprintf(dcCore::app()->tpl->getFilters($attr), 'dcCore::app()->blog->url.dcCore::app()->url->getBase("categories")') . '; ?>';
+        App::frontend()->template()->addValue('CategoriesURL', function (ArrayObject $attr): string {
+            return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), 'App::blog()->url().App::url()->getBase("categories")') . '; ?>';
         });
 
         return true;

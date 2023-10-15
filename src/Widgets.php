@@ -1,24 +1,22 @@
 <?php
-/**
- * @brief CategoriesPage, a plugin for Dotclear 2
- *
- * @package Dotclear
- * @subpackage Plugin
- *
- * @author Pierre Van Glabeke, Bernard Le Roux and Contributors
- *
- * @copyright Jean-Christian Denis
- * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
- */
+
 declare(strict_types=1);
 
 namespace Dotclear\Plugin\CategoriesPage;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\widgets\WidgetsStack;
 use Dotclear\Plugin\widgets\WidgetsElement;
 
+/**
+ * @brief       CategoriesPage widgets class.
+ * @ingroup     CategoriesPage
+ *
+ * @author      Pierre Van Glabeke (author)
+ * @author      Jean-Christian Denis (latest)
+ * @copyright   GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
+ */
 class Widgets
 {
     public static function initWidgets(WidgetsStack $w): void
@@ -27,7 +25,7 @@ class Widgets
             ->create(
                 My::id(),
                 My::name(),
-                [self::class, 'parseWidget'],
+                self::parseWidget(...),
                 null,
                 __('Link to categories')
             )
@@ -40,12 +38,10 @@ class Widgets
 
     public static function parseWidget(WidgetsElement $w): string
     {
-        if ($w->offline || !$w->checkHomeOnly(dcCore::app()->url->type)) {
-            return '';
-        }
-
-        // nullsafe PHP < 8.0
-        if (is_null(dcCore::app()->blog)) {
+        if ($w->offline
+            || !$w->checkHomeOnly(App::url()->type)
+            || !App::blog()->isDefined()
+        ) {
             return '';
         }
 
@@ -54,7 +50,7 @@ class Widgets
             My::id() . ' ' . $w->class,
             '',
             ($w->title ? $w->renderTitle(Html::escapeHTML($w->title)) : '') .
-            '<p><a href="' . dcCore::app()->blog->url . dcCore::app()->url->getBase('categories') . '">' .
+            '<p><a href="' . App::blog()->url() . App::url()->getBase('categories') . '">' .
             ($w->link_title ? Html::escapeHTML($w->link_title) : __('All categories')) .
             '</a></p>'
         );
