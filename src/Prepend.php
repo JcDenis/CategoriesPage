@@ -29,10 +29,10 @@ class Prepend extends Process
         }
 
         App::url()->register(
-            'categories',
+            My::id(),
             'categories',
             '^categories$',
-            UrlHandler::categories(...)
+            FrontendUrl::categories(...)
         );
 
         return true;

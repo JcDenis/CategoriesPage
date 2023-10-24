@@ -32,21 +32,14 @@ class Frontend extends Process
         App::behavior()->addBehaviors([
             // template path
             'publicBeforeDocumentV2' => function (): void {
-                if (!App::blog()->isDefined()) {
-                    return ;
+                $tplset = App::themes()->getDefine(App::blog()->settings()->get('system')->get('theme'))->get('tplset');
+                if (empty($tplset) || !is_dir(implode(DIRECTORY_SEPARATOR, [My::path(), 'default-templates', $tplset]))) {
+                    $tplset = App::config()->defaultTplset();
                 }
-
-                $tplset = App::themes()->moduleInfo(App::blog()->settings()->get('system')->get('theme'), 'tplset');
-                if (!empty($tplset) && is_dir(implode(DIRECTORY_SEPARATOR, [My::path(), 'default-templates', $tplset]))) {
-                    App::frontend()->template()->setPath(App::frontend()->template()->getPath(), implode(DIRECTORY_SEPARATOR, [My::path(), 'default-templates', $tplset]));
-                } else {
-                    App::frontend()->template()->setPath(App::frontend()->template()->getPath(), implode(DIRECTORY_SEPARATOR, [My::path(), 'default-templates', App::config()->defaultTplset()]));
-                }
+                App::frontend()->template()->appendPath(implode(DIRECTORY_SEPARATOR, [My::path(), 'default-templates', $tplset]));
             },
             // breacrumb addon
-            'publicBreadcrumb' => function (string $context, string $separator): string {
-                return $context == 'categories' ? My::name() : '';
-            },
+            'publicBreadcrumb' => fn (string $context, string $separator) => $context == 'categories' ? My::name() : '',
             // widget
             'initWidgets' => Widgets::initWidgets(...),
         ]);

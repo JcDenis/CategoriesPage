@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\CategoriesPage;
 
+use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Process;
 
@@ -28,7 +29,19 @@ class Backend extends Process
             return false;
         }
 
-        App::behavior()->addBehavior('initWidgets', Widgets::initWidgets(...));
+        App::behavior()->addBehaviors([
+            'adminSimpleMenuAddType' => function (ArrayObject $items): void {
+                $items[My::id()] = new ArrayObject([My::name(), false]);
+            },
+            'adminSimpleMenuBeforeEdit' => function (string $type, string $select, array &$item): void {
+                if (My::id() == $type) {
+                    $item[0] = My::name();
+                    $item[1] = My::name();
+                    $item[2] = App::url()->getURLFor(My::id());
+                }
+            },
+            'initWidgets' => Widgets::initWidgets(...),
+        ]);
 
         return true;
     }

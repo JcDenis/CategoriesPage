@@ -1,3 +1,10 @@
+CategoriesPage 1.3.1 - 2023.10.24
+===========================================================
+* Require Dotclear 2.28
+* Require PHP 8.1
+* Add plugin simpleMenu helper
+* Code review
+
 CategoriesPage 1.3 - 2023.10.15
 ===========================================================
 * Require Dotclear 2.28

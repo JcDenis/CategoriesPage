@@ -51,7 +51,7 @@ class Widgets
             '',
             ($w->title ? $w->renderTitle(Html::escapeHTML($w->title)) : '') .
             '<p><a href="' . App::blog()->url() . App::url()->getBase('categories') . '">' .
-            ($w->link_title ? Html::escapeHTML($w->link_title) : __('All categories')) .
+            ($w->get('link_title') ? Html::escapeHTML($w->get('link_title')) : __('All categories')) .
             '</a></p>'
         );
     }
