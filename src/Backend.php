@@ -7,6 +7,7 @@ namespace Dotclear\Plugin\CategoriesPage;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Html;
 
 /**
  * @brief       CategoriesPage backend class.
@@ -37,7 +38,7 @@ class Backend extends Process
                 if (My::id() == $type) {
                     $item[0] = My::name();
                     $item[1] = My::name();
-                    $item[2] = App::url()->getURLFor(My::id());
+                    $item[2] = Html::stripHostURL(App::blog()->url()) . App::url()->getURLFor(My::id());
                 }
             },
             'initWidgets' => Widgets::initWidgets(...),

@@ -18,7 +18,7 @@ $this->registerModule(
     'Categories Page',
     'Add a public page for categories list',
     'Pierre Van Glabeke, Bernard Le Roux and Contributors',
-    '1.3.1',
+    '1.3.2',
     [
         'requires'    => [['core', '2.28']],
         'permissions' => 'My',
