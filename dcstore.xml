@@ -5,7 +5,7 @@
     <version>1.3.2</version>
     <author>Pierre Van Glabeke, Bernard Le Roux and Contributors</author>
     <desc>Add a public page for categories list</desc>
-    <file>https://git.dotclear.watch/JcDenis/CategoriesPage/releases/download/v1.3.2/plugin-CategoriesPage.zip</file>
+    <file>https://github.com/JcDenis/CategoriesPage/releases/download/v1.3.2/plugin-CategoriesPage.zip</file>
     <da:dcmin>2.28</da:dcmin>
     <da:details>https://git.dotclear.watch/JcDenis/CategoriesPage/src/branch/master/README.md</da:details>
     <da:support>https://git.dotclear.watch/JcDenis/CategoriesPage/issues</da:support>
