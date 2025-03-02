@@ -1,3 +1,9 @@
+CategoriesPage 1.3.3 - 2025.03.02
+===========================================================
+* Require Dotclear 2.28
+* Require PHP 8.1
+* Fix repository URLs
+
 CategoriesPage 1.3.2 - 2023.11.04
 ===========================================================
 * Require Dotclear 2.28
