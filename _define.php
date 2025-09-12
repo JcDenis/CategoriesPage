@@ -18,7 +18,7 @@ $this->registerModule(
     'Categories Page',
     'Add a public page for categories list',
     'Pierre Van Glabeke, Bernard Le Roux and Contributors',
-    '1.4.1',
+    '1.4',
     [
         'requires'    => [['core', '2.36']],
         'settings'    => ['blog' => '#params.' . $this->id . '_params'],
@@ -27,7 +27,7 @@ $this->registerModule(
         'support'     => 'https://github.com/JcDenis/' . $this->id . '/issues',
         'details'     => 'https://github.com/JcDenis/' . $this->id . '/',
         'repository'  => 'https://raw.githubusercontent.com/JcDenis/' . $this->id . '/master/dcstore.xml',
-        'date'        => '2025-03-02T09:15:49+00:00',
+        'date'        => '2025-09-12T16:41:05+00:00',
 
     ]
 );
