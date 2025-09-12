@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\CategoriesPage;
 
-use Dotclear\Core\Frontend\Url;
+use Dotclear\App;
 
 /**
  * @brief       CategoriesPage frontend URL handler class.
@@ -14,11 +14,11 @@ use Dotclear\Core\Frontend\Url;
  * @author      Jean-Christian Denis (latest)
  * @copyright   GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
  */
-class FrontendUrl extends Url
+class FrontendUrl
 {
     public static function categories(?string $args): void
     {
-        self::serveDocument('categories.html');
+        App::url()::serveDocument('categories.html');
         exit;
     }
 }

@@ -6,7 +6,7 @@ namespace Dotclear\Plugin\CategoriesPage;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 
 /**
  * @brief       CategoriesPage frontend class.
@@ -16,8 +16,10 @@ use Dotclear\Core\Process;
  * @author      Jean-Christian Denis (latest)
  * @copyright   GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
  */
-class Frontend extends Process
+class Frontend
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         return self::status(My::checkContext(My::FRONTEND));
@@ -45,11 +47,41 @@ class Frontend extends Process
         ]);
 
         // tpl values
-        App::frontend()->template()->addValue('CategoryCount', function (ArrayObject $attr): string {
-            return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), 'App::frontend()->context()->categories->nb_post') . '; ?>';
-        });
-        App::frontend()->template()->addValue('CategoriesURL', function (ArrayObject $attr): string {
+        App::frontend()->template()->addValue('CategoriesPageURL', function (ArrayObject $attr): string {
             return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), 'App::blog()->url().App::url()->getBase("categories")') . '; ?>';
+        });
+        App::frontend()->template()->addValue('CategoriesPageTitle', function (ArrayObject $attr): string {
+            return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), My::class . "::settings()->get('page_title') ?: __('Categories')") . '; ?>';
+        });
+        App::frontend()->template()->addValue('CategoriesPageDescription', function (ArrayObject $attr): string {
+            return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), My::class . "::settings()->get('page_desc') ?: ''") . '; ?>';
+        });
+        App::frontend()->template()->addBlock('CategoryComments', function (ArrayObject $attr, string $content): string {
+            $p = 
+                '$params[\'cat_id\'] = App::frontend()->context()->categories->cat_id;' .
+                '$params[\'order\'] = \'comment_dt desc\';' .
+                '$params[\'no_content\'] = true;';
+
+            $lastn = 0;
+            if (isset($attr['lastn'])) {
+                $lastn = abs((int) $attr['lastn']) + 0;
+            }
+            if ($lastn > 0) {
+                $p .= '$params[\'limit\'] = ' . $lastn . ';';
+            }
+            if (isset($attr['no_content']) && $attr['no_content']) {
+                $p .= '$params[\'no_content\'] = true;';
+            }
+        
+            return 
+                '<?php ' . $p . 
+                'App::frontend()->context()->comments_params = $params;' .
+                'App::frontend()->context()->comments = App::blog()->getComments($params); unset($params);' .
+                'while (App::frontend()->context()->comments->fetch()) : ' .
+                'App::frontend()->context()->posts = App::blog()->getPosts([\'post_id\' => App::frontend()->context()->comments->post_id]);' .
+                '?>' .
+                $content .
+                '<?php endwhile; App::frontend()->context()->pop("comments"); ?>';
         });
 
         return true;

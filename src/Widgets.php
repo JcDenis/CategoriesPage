@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\CategoriesPage;
 
 use Dotclear\App;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\widgets\WidgetsStack;
 use Dotclear\Plugin\widgets\WidgetsElement;
@@ -50,9 +52,12 @@ class Widgets
             My::id() . ' ' . $w->class,
             '',
             ($w->title ? $w->renderTitle(Html::escapeHTML($w->title)) : '') .
-            '<p><a href="' . App::blog()->url() . App::url()->getBase('categories') . '">' .
-            ($w->get('link_title') ? Html::escapeHTML($w->get('link_title')) : __('All categories')) .
-            '</a></p>'
+            (new Para())
+                ->items([
+                    (new Link(App::blog()->url() . App::url()->getBase('categories')))
+                        ->text($w->get('link_title') ? Html::escapeHTML($w->get('link_title')) : __('All categories'))
+                ])
+                ->render()
         );
     }
 }
