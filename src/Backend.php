@@ -52,8 +52,8 @@ class Backend
                 }
             },
             'adminBlogPreferencesFormV2' => function (BlogSettingsInterface $blog_settings): void {
-                $page_title = is_string($blog_settings->get(My::id())->get('page_title')) ? $blog_settings->get(My::id())->get('page_title') : '';
-                $page_desc  = is_string($blog_settings->get(My::id())->get('page_desc')) ? $blog_settings->get(My::id())->get('page_desc') : '';
+                $page_title = $blog_settings->get(My::id())->getStr('page_title', false);
+                $page_desc  = $blog_settings->get(My::id())->getStr('page_desc', false);
                 echo (new Fieldset(My::id() . '_params'))
                     ->legend(new Legend(My::name()))
                     ->items([

@@ -34,14 +34,11 @@ class Frontend
         App::behavior()->addBehaviors([
             // template path
             'publicBeforeDocumentV2' => function (): void {
-                $tplset = App::blog()->settings()->get('system')->get('theme');
-                if (is_string($tplset)) {
-                    $tplset = App::themes()->getDefine($tplset)->get('tplset');
-                    if (!is_string($tplset) || empty($tplset) || !is_dir(implode(DIRECTORY_SEPARATOR, [My::path(), 'default-templates', $tplset]))) {
-                        $tplset = App::config()->defaultTplset();
-                    }
-                    App::frontend()->template()->appendPath(implode(DIRECTORY_SEPARATOR, [My::path(), 'default-templates', $tplset]));
+                $tplset = App::themes()->getDefine(App::blog()->settings()->get('system')->getStr('theme', false))->get('tplset');
+                if (!is_string($tplset) || empty($tplset) || !is_dir(implode(DIRECTORY_SEPARATOR, [My::path(), 'default-templates', $tplset]))) {
+                    $tplset = App::config()->defaultTplset();
                 }
+                App::frontend()->template()->appendPath(implode(DIRECTORY_SEPARATOR, [My::path(), 'default-templates', $tplset]));
             },
             // breacrumb addon
             'publicBreadcrumb' => fn (string $context, string $separator) => $context == 'categories' ? My::name() : '',
@@ -54,10 +51,10 @@ class Frontend
             return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), 'App::blog()->url().App::url()->getBase("categories")') . '; ?>';
         });
         App::frontend()->template()->addValue('CategoriesPageTitle', function (ArrayObject $attr): string {
-            return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), My::class . "::settings()->get('page_title') ?: __('Categories')") . '; ?>';
+            return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), My::class . "::settings()->getStr('page_title', false) ?: __('Categories')") . '; ?>';
         });
         App::frontend()->template()->addValue('CategoriesPageDescription', function (ArrayObject $attr): string {
-            return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), My::class . "::settings()->get('page_desc') ?: ''") . '; ?>';
+            return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), My::class . "::settings()->getStr('page_desc', false)") . '; ?>';
         });
         App::frontend()->template()->addBlock('CategoryComments', function (ArrayObject $attr, string $content): string {
             $p = 
