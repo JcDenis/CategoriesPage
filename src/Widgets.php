@@ -41,7 +41,7 @@ class Widgets
     public static function parseWidget(WidgetsElement $w): string
     {
         if ($w->offline
-            || !$w->checkHomeOnly(App::url()->type)
+            || !$w->checkHomeOnly(App::url()->getType())
             || !App::blog()->isDefined()
         ) {
             return '';
@@ -49,13 +49,13 @@ class Widgets
 
         return $w->renderDiv(
             (bool) $w->content_only,
-            My::id() . ' ' . $w->class,
+            My::id() . (is_string($w->__get('class')) ? ' ' . $w->__get('class') : ''),
             '',
-            ($w->title ? $w->renderTitle(Html::escapeHTML($w->title)) : '') .
+            (is_string($w->__get('title')) && !empty($w->__get('title')) ? $w->renderTitle(Html::escapeHTML($w->__get('title'))) : '') .
             (new Para())
                 ->items([
                     (new Link(App::blog()->url() . App::url()->getBase('categories')))
-                        ->text($w->get('link_title') ? Html::escapeHTML($w->get('link_title')) : __('All categories'))
+                        ->text(is_string($w->__get('link_title')) && !empty($w->__get('link_title')) ? Html::escapeHTML($w->__get('link_title')) : __('All categories'))
                 ])
                 ->render()
         );

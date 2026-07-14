@@ -14,13 +14,17 @@
  */
 declare(strict_types=1);
 
+if (!isset($this) || !is_object($this) || !method_exists($this, 'registerModule') || !isset($this->id) || !is_string($this->id)) {
+    return;
+}
+
 $this->registerModule(
     'Categories Page',
     'Add a public page for categories list',
     'Pierre Van Glabeke, Bernard Le Roux and Contributors',
     '1.4',
     [
-        'requires'    => [['core', '2.36']],
+        'requires'    => [['core', '2.39']],
         'settings'    => ['blog' => '#params.' . $this->id . '_params'],
         'permissions' => 'My',
         'type'        => 'plugin',

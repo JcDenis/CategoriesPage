@@ -52,6 +52,8 @@ class Backend
                 }
             },
             'adminBlogPreferencesFormV2' => function (BlogSettingsInterface $blog_settings): void {
+                $page_title = is_string($blog_settings->get(My::id())->get('page_title')) ? $blog_settings->get(My::id())->get('page_title') : '';
+                $page_desc  = is_string($blog_settings->get(My::id())->get('page_desc')) ? $blog_settings->get(My::id())->get('page_desc') : '';
                 echo (new Fieldset(My::id() . '_params'))
                     ->legend(new Legend(My::name()))
                     ->items([
@@ -61,12 +63,12 @@ class Backend
                                     ->class('maximal')
                                     ->size(65)
                                     ->maxlength(255)
-                                    ->value($blog_settings->get(My::id())->get('page_title'))
+                                    ->value($page_title)
                                     ->label(new Label(__('Public categories page title:'), Label::OL_TF)),
                         ]),
                         (new Para())
                             ->items([
-                                (new Textarea(My::id() . 'page_desc', Html::escapeHTML((string) $blog_settings->get(My::id())->get('page_desc'))))
+                                (new Textarea(My::id() . 'page_desc', Html::escapeHTML($page_desc)))
                                     ->rows(6)
                                     ->class('maximal')
                                     ->label((new Label(__('Public categories page description:'), Label::OL_TF))),
@@ -75,8 +77,10 @@ class Backend
                     ->render();
             },
             'adminBeforeBlogSettingsUpdate' => function (BlogSettingsInterface $blog_settings): void {
-                $blog_settings->get(My::id())->put('page_title', (string) $_POST[My::id() . 'page_title']);
-                $blog_settings->get(My::id())->put('page_desc', (string) $_POST[My::id() . 'page_desc']);
+                $page_title = isset($_POST[My::id() . 'page_title']) && is_string($_POST[My::id() . 'page_title']) ? $_POST[My::id() . 'page_title'] : '';
+                $page_desc  = isset($_POST[My::id() . 'page_desc']) && is_string($_POST[My::id() . 'page_desc']) ? $_POST[My::id() . 'page_desc'] : '';
+                $blog_settings->get(My::id())->put('page_title', $page_title);
+                $blog_settings->get(My::id())->put('page_desc', $page_desc);
             },
             //'adminBlogPreferencesHeaders' => fn (): string => My::jsLoad('backend'),
             'adminPostEditorTags' => function (string $editor, string $context, ArrayObject $alt_tags, string $format): void {

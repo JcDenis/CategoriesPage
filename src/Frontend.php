@@ -34,11 +34,14 @@ class Frontend
         App::behavior()->addBehaviors([
             // template path
             'publicBeforeDocumentV2' => function (): void {
-                $tplset = App::themes()->getDefine(App::blog()->settings()->get('system')->get('theme'))->get('tplset');
-                if (empty($tplset) || !is_dir(implode(DIRECTORY_SEPARATOR, [My::path(), 'default-templates', $tplset]))) {
-                    $tplset = App::config()->defaultTplset();
+                $tplset = App::blog()->settings()->get('system')->get('theme');
+                if (is_string($tplset)) {
+                    $tplset = App::themes()->getDefine($tplset)->get('tplset');
+                    if (!is_string($tplset) || empty($tplset) || !is_dir(implode(DIRECTORY_SEPARATOR, [My::path(), 'default-templates', $tplset]))) {
+                        $tplset = App::config()->defaultTplset();
+                    }
+                    App::frontend()->template()->appendPath(implode(DIRECTORY_SEPARATOR, [My::path(), 'default-templates', $tplset]));
                 }
-                App::frontend()->template()->appendPath(implode(DIRECTORY_SEPARATOR, [My::path(), 'default-templates', $tplset]));
             },
             // breacrumb addon
             'publicBreadcrumb' => fn (string $context, string $separator) => $context == 'categories' ? My::name() : '',
@@ -63,7 +66,7 @@ class Frontend
                 '$params[\'no_content\'] = true;';
 
             $lastn = 0;
-            if (isset($attr['lastn'])) {
+            if (isset($attr['lastn']) && is_numeric($attr['lastn'])) {
                 $lastn = abs((int) $attr['lastn']) + 0;
             }
             if ($lastn > 0) {
