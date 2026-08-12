@@ -22,7 +22,7 @@ $this->registerModule(
     'Categories Page',
     'Add a public page for categories list',
     'Pierre Van Glabeke, Bernard Le Roux and Contributors',
-    '1.4',
+    '1.5',
     [
         'requires'    => [['core', '2.39']],
         'settings'    => ['blog' => '#params.' . $this->id . '_params'],

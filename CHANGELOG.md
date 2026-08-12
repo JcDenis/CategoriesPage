@@ -1,4 +1,4 @@
-CategoriesPage 1.x - xxxx.xx.xx
+CategoriesPage 1.5 - 2026.08.12
 ===========================================================
 * Bump Dotclear from 2.36 to 2.39
 * Code review (phpstan max)
