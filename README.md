@@ -40,5 +40,6 @@ default templates are on plugin directory CategoriesPage/default-templates/
 * Pierre Van Glabeke (author)
 * Bernard Le Roux
 * Jean-Christian Denis (latest)
+* Claude (AI assistant by Anthropic)
 
 You are welcome to contribute to this code.

@@ -40,7 +40,7 @@ class Widgets
 
     public static function parseWidget(WidgetsElement $w): string
     {
-        if ($w->offline
+        if ($w->isOffline()
             || !$w->checkHomeOnly(App::url()->getType())
             || !App::blog()->isDefined()
         ) {
@@ -48,8 +48,8 @@ class Widgets
         }
 
         return $w->renderDiv(
-            (bool) $w->content_only,
-            My::id() . (is_string($w->__get('class')) ? ' ' . $w->__get('class') : ''),
+            (bool) $w->get('content_only'),
+            My::id() . (is_string($w->get('class')) ? ' ' . $w->get('class') : ''),
             '',
             (is_string($w->__get('title')) && !empty($w->__get('title')) ? $w->renderTitle(Html::escapeHTML($w->__get('title'))) : '') .
             (new Para())
