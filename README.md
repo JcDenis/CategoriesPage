@@ -13,6 +13,8 @@ _CategoriesPage_ is a plugin for the open-source web publishing software called 
 
 > Add a public page to list blog categories. A widget is also available.
 
+A [user guide in French](https://github.com/JcDenis/CategoriesPage/blob/master/docs/fr/utilisation.md) is available.
+
 ## REQUIREMENTS
 
 * Dotclear 2.39
@@ -29,6 +31,7 @@ default templates are on plugin directory CategoriesPage/default-templates/
 
 ## LINKS
 
+* [User guide (in French)](https://github.com/JcDenis/CategoriesPage/blob/master/docs/fr/utilisation.md)
 * [License](https://github.com/JcDenis/CategoriesPage/blob/master/LICENSE)
 * [Packages & details](https://github.com/JcDenis/CategoriesPage/releases) (or on [Repository](https://dotclear.org/plugin/detail/CategoriesPage))
 * [Sources & contributions](https://github.com/JcDenis/CategoriesPage)
