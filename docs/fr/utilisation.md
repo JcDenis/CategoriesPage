@@ -44,10 +44,8 @@ Les catégories sans billet ne sont pas affichées.
 
 ![Réglages de la page des catégories](img/reglages-blog.png)
 
-* _Public categories page title:_ : le titre de la page. Si vous laissez vide, le titre est « Catégories ».
-* _Public categories page description:_ : un texte affiché sous le titre. Il accepte du HTML. L'éditeur de billets s'applique à ce champ s'il est actif.
-
-Ces deux libellés sont en anglais dans l'interface, même en français.
+* _Titre de la page publique des catégories :_ : le titre de la page, repris dans le fil d'Ariane. Si vous laissez vide, le titre est « Catégories ».
+* _Description de la page publique des catégories :_ : un texte affiché sous le titre. Il accepte du HTML. L'éditeur de billets s'applique à ce champ s'il est actif.
 
 ## Ajouter la page au menu
 
@@ -74,14 +72,13 @@ Le widget _Page des catégories_ affiche un lien vers la page.
 ![Réglages du widget](img/widget-reglages.png)
 
 * _Titre (optionnel)_ : le titre du widget.
+* _Titre du lien :_ : le texte du lien. Par défaut, « Toutes les catégories ».
 * _Afficher_ : sur toutes les pages ou seulement en page d'accueil.
 * _Contenu seul (sans boîte englobante)_ : supprime la boîte autour du widget.
 * _Classe CSS supplémentaire pour la boîte englobante_ : ajoute votre classe CSS.
 * _Hors ligne_ : cache le widget sans le supprimer.
 
 ![Le widget sur le blog](img/widget-public.png)
-
-Le texte du lien est « Toutes les catégories ». On ne peut pas le changer.
 
 ## Modifier le gabarit
 
@@ -99,6 +96,4 @@ Le bloc `<tpl:CategoryComments lastn="1">` boucle sur les derniers commentaires 
 
 ## Bon à savoir
 
-* Le lien du widget ne mène à rien pour l'instant : il n'a pas d'adresse. Utilisez plutôt l'item de menu pour pointer vers la page.
-* La balise `{{tpl:CategoriesPageURL}}` renvoie l'adresse du blog et non celle de la page. Écrivez l'adresse à la main dans vos gabarits : `{{tpl:BlogURL}}categories`.
 * La page est ouverte à tous. Pour la cacher, supprimez simplement les liens qui y mènent.
