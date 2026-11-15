@@ -1,3 +1,9 @@
+CategoriesPage 1.7 - 2026.11.15
+===========================================================
+* [fix] Widget link and URL tag, breadcrumb, widget link title setting
+* [lang] Add missing French translations
+* [docs] Add a user guide in French, with screenshots
+
 CategoriesPage 1.6 - 2026.11.09
 ===========================================================
 * Fix compatibility with Dotclear 2.40
