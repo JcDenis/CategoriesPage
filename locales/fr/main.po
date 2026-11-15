@@ -36,3 +36,11 @@ msgstr "Lien vers la page des catégories"
 msgid "Add a public page for categories list"
 msgstr "Ajoute une page publique listant les catégories"
 
+msgid "Public categories page title:"
+msgstr "Titre de la page publique des catégories :"
+
+msgid "Public categories page description:"
+msgstr "Description de la page publique des catégories :"
+
+msgid "Link title:"
+msgstr "Titre du lien :"
