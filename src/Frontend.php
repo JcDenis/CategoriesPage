@@ -6,6 +6,7 @@ namespace Dotclear\Plugin\CategoriesPage;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Process\TraitProcess;
 
 /**
@@ -41,14 +42,14 @@ class Frontend
                 App::frontend()->template()->appendPath(implode(DIRECTORY_SEPARATOR, [My::path(), 'default-templates', $tplset]));
             },
             // breacrumb addon
-            'publicBreadcrumb' => fn (string $context, string $separator) => $context == 'categories' ? My::name() : '',
+            'publicBreadcrumb' => fn (string $context, string $separator): string => $context === My::id() ? Html::escapeHTML(My::settings()->getStr('page_title', false) ?: __('Categories')) : '',
             // widget
             'initWidgets' => Widgets::initWidgets(...),
         ]);
 
         // tpl values
         App::frontend()->template()->addValue('CategoriesPageURL', function (ArrayObject $attr): string {
-            return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), 'App::blog()->url().App::url()->getBase("categories")') . '; ?>';
+            return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), 'App::blog()->url().App::url()->getURLFor("' . My::id() . '")') . '; ?>';
         });
         App::frontend()->template()->addValue('CategoriesPageTitle', function (ArrayObject $attr): string {
             return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), My::class . "::settings()->getStr('page_title', false) ?: __('Categories')") . '; ?>';

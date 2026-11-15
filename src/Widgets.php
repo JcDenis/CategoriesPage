@@ -32,6 +32,7 @@ class Widgets
                 __('Link to categories')
             )
             ->addTitle(My::name())
+            ->setting('link_title', __('Link title:'), __('All categories'))
             ->addHomeOnly()
             ->addContentOnly()
             ->addClass()
@@ -54,7 +55,8 @@ class Widgets
             (is_string($w->__get('title')) && !empty($w->__get('title')) ? $w->renderTitle(Html::escapeHTML($w->__get('title'))) : '') .
             (new Para())
                 ->items([
-                    (new Link(App::blog()->url() . App::url()->getBase('categories')))
+                    (new Link())
+                        ->href(App::blog()->url() . App::url()->getURLFor(My::id()))
                         ->text(is_string($w->__get('link_title')) && !empty($w->__get('link_title')) ? Html::escapeHTML($w->__get('link_title')) : __('All categories'))
                 ])
                 ->render()
