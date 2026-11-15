@@ -1,3 +1,7 @@
+CategoriesPage 1.7.1 - 2026.11.15
+===========================================================
+* [lang] Do not override core translations
+
 CategoriesPage 1.7 - 2026.11.15
 ===========================================================
 * [fix] Widget link and URL tag, breadcrumb, widget link title setting
