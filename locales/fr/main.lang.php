@@ -19,4 +19,4 @@ L10n::$locales['Link to categories'] = 'Lien vers la page des catégories';
 L10n::$locales['Add a public page for categories list'] = 'Ajoute une page publique listant les catégories';
 L10n::$locales['Public categories page title:'] = 'Titre de la page publique des catégories :';
 L10n::$locales['Public categories page description:'] = 'Description de la page publique des catégories :';
-L10n::$locales['Link title:'] = 'Titre du lien :';
+L10n::$locales['Link title:'] = 'Titre du lien :';

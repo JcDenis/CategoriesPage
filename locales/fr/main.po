@@ -43,4 +43,4 @@ msgid "Public categories page description:"
 msgstr "Description de la page publique des catégories :"
 
 msgid "Link title:"
-msgstr "Titre du lien :"
+msgstr "Titre du lien :"
