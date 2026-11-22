@@ -24,7 +24,7 @@ Required Dotclear and PHP versions: see `_define.php`.
 * `src/Prepend.php`: loaded on every request: autoload, URL handlers, permission types.
 * `src/Widgets.php`: widgets definition and rendering.
 * `default-templates/`: public templates.
-* Behaviors used: `initWidgets`, `adminSimpleMenuAddType`, `adminSimpleMenuBeforeEdit`, `adminBlogPreferencesFormV2`, `adminBeforeBlogSettingsUpdate`, `adminPostEditorTags`, `publicBeforeDocumentV2`, `publicBreadcrumb`.
+* Behaviors used: `initWidgets`, `adminSimpleMenuAddType`, `adminSimpleMenuBeforeEditV2`, `adminBlogPreferencesFormV2`, `adminBeforeBlogSettingsUpdate`, `adminPostEditorTags`, `publicBeforeDocumentV2`, `publicBreadcrumb`.
 
 ## Pitfalls
 
