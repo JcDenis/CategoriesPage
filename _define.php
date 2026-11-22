@@ -24,7 +24,7 @@ $this->registerModule(
     'Pierre Van Glabeke, Bernard Le Roux and Contributors',
     '1.7.1',
     [
-        'requires'    => [['core', '2.39']],
+        'requires'    => [['core', '2.40']],
         'settings'    => ['blog' => '#params.' . $this->id . '_params'],
         'permissions' => 'My',
         'type'        => 'plugin',

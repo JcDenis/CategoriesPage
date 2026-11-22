@@ -15,6 +15,7 @@ use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Interface\Core\BlogSettingsInterface;
+use Dotclear\Plugin\simpleMenu\MenuItemEdit;
 
 /**
  * @brief       CategoriesPage backend class.
@@ -44,11 +45,11 @@ class Backend
             'adminSimpleMenuAddType' => function (ArrayObject $items): void {
                 $items[My::id()] = new ArrayObject([My::name(), false]);
             },
-            'adminSimpleMenuBeforeEdit' => function (string $type, string $select, array &$item): void {
-                if (My::id() == $type) {
-                    $item[0] = My::name();
-                    $item[1] = My::name();
-                    $item[2] = Html::stripHostURL(App::blog()->url()) . App::url()->getURLFor(My::id());
+            'adminSimpleMenuBeforeEditV2' => function (MenuItemEdit $item): void {
+                if (My::id() === $item->getType()) {
+                    $item->setLabel(My::name());
+                    $item->setDescription(My::name());
+                    $item->setUrl(Html::stripHostURL(App::blog()->url()) . App::url()->getURLFor(My::id()));
                 }
             },
             'adminBlogPreferencesFormV2' => function (BlogSettingsInterface $blog_settings): void {
