@@ -1,3 +1,7 @@
+CategoriesPage 1.8 - 2026.11.22
+===========================================================
+* [compat] Use adminSimpleMenuBeforeEditV2 behavior, require Dotclear 2.40
+
 CategoriesPage 1.7.1 - 2026.11.15
 ===========================================================
 * [lang] Do not override core translations
